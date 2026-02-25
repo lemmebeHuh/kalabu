@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lina Rosmalina - Profile</title>
+    <style>
+        /* Mengambil font geometris sans-serif ala Bauhaus dari Google Fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Jost:wght@400;700&display=swap');
+
+        :root {
+            --black: #1a1a1a;
+            --white: #f4f4f0;
+            --bauhaus-red: #e03526;
+            --bauhaus-blue: #005086;
+            --bauhaus-yellow: #f2c12e;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: 'Jost', sans-serif;
+            background-color: var(--white);
+            color: var(--black);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            /* Latar belakang grid minimalis */
+            background-image: linear-gradient(var(--black) 1px, transparent 1px), linear-gradient(90deg, var(--black) 1px, transparent 1px);
+            background-size: 40px 40px;
+            background-position: -1px -1px;
+            background-color: #f7f6f2;
+        }
+
+        .container {
+            position: relative;
+            max-width: 800px; /* Sedikit lebih lebar untuk mengakomodasi foto */
+            width: 100%;
+            background: #fff;
+            border: 5px solid var(--black);
+            padding: 50px 40px;
+            box-shadow: 15px 15px 0px var(--bauhaus-red);
+            z-index: 1;
+        }
+
+        /* Layout Flex untuk Header dan Foto (Desktop First) */
+        .header-grid {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+
+        .header-text {
+            flex: 1;
+        }
+
+        /* Styling Foto Profile */
+        .profile-photo-container {
+            flex-shrink: 0;
+        }
+
+        .profile-photo {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 50%; /* Lingkaran */
+            border: 5px solid var(--black);
+            /* Bayangan solid biru untuk kontras dengan bayangan merah container */
+            box-shadow: 10px 10px 0px var(--bauhaus-blue);
+            background-color: #ddd; /* Placeholder color jika gambar belum dimuat */
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            text-transform: uppercase;
+            margin: 0 0 5px 0;
+            letter-spacing: -1px;
+            line-height: 1.1;
+            border-bottom: 8px solid var(--black);
+            padding-bottom: 15px;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 15px 0 0 0;
+            color: var(--bauhaus-blue);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .location {
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+            display: inline-block;
+            background-color: var(--bauhaus-yellow);
+            padding: 5px 10px;
+            border: 2px solid var(--black);
+        }
+
+        .profile-text {
+            font-size: 1.15rem;
+            line-height: 1.6;
+            margin-bottom: 40px;
+            border-left: 6px solid var(--bauhaus-red);
+            padding-left: 20px;
+            text-align: justify;
+        }
+
+        .buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        a.btn {
+            display: inline-block;
+            padding: 14px 28px;
+            text-decoration: none;
+            color: var(--black);
+            font-weight: 700;
+            font-size: 1rem;
+            text-transform: uppercase;
+            border: 4px solid var(--black);
+            background-color: #fff;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        a.btn:hover {
+            transform: translate(-5px, -5px);
+            box-shadow: 5px 5px 0px var(--black);
+        }
+
+        /* Hover warna primer Bauhaus */
+        a.btn.cv:hover { background-color: var(--bauhaus-blue); color: #fff; }
+        a.btn.wa:hover { background-color: var(--bauhaus-yellow); }
+        a.btn.email:hover { background-color: var(--bauhaus-red); color: #fff; }
+
+        /* --- RESPONSIVE MOBILE --- */
+        @media (max-width: 768px) {
+            body { padding: 10px; align-items: flex-start;}
+            .container { padding: 30px 20px; margin-top: 20px; }
+            
+            /* Ubah urutan: Foto di atas, teks di bawah, rata tengah */
+            .header-grid {
+                flex-direction: column-reverse; 
+                align-items: center;
+                text-align: center;
+                gap: 20px;
+            }
+
+            .profile-photo {
+                width: 160px; /* Foto sedikit lebih kecil di HP */
+                height: 160px;
+            }
+
+            h1 { font-size: 2.5rem; border-bottom: 5px solid var(--black); }
+            
+            .location-wrapper { text-align: center; } /* Wrapper baru untuk meratakan lokasi */
+
+            /* Penyesuaian teks profil di mobile agar lebih rapi */
+            .profile-text {
+                border-left: none;
+                border-top: 5px solid var(--bauhaus-red);
+                padding-left: 0;
+                padding-top: 20px;
+                text-align: center; /* Ubah ke center untuk mobile jika ingin lebih santai, atau biarkan justify */
+            }
+
+            .buttons { 
+                flex-direction: column; 
+                width: 100%;
+            }
+            a.btn { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <div class="header-grid">
+            <div class="header-text">
+                <header>
+                    <h1>Lina<br>Rosmalina</h1>
+                    <h2>Cleaning Service Officer</h2>
+                </header>
+                <div class="location-wrapper">
+                    <div class="location">
+                        📍 Bandung, Jawa Barat
+                    </div>
+                </div>
+            </div>
+            
+            <div class="profile-photo-container">
+                <img src="foto.png" alt="Foto Lina Rosmalina" class="profile-photo">
+            </div>
+        </div>
+
+
+        <div class="profile-text">
+            Tenaga kebersihan yang berdedikasi tinggi, jujur, dan disiplin dengan pengalaman kerja yang solid di berbagai perusahaan penyedia jasa kebersihan. Memiliki kompetensi standar nasional yang dibuktikan dengan Sertifikat BNSP (Cleaning Service). Terbiasa bekerja secara mandiri maupun dalam tim untuk memastikan lingkungan kerja selalu bersih, higienis, rapi, dan nyaman sesuai dengan standar operasional perusahaan (SOP).
+        </div>
+
+        <div class="buttons">
+            <a href="URL_FILE_CV_KAMU_DISINI.pdf" class="btn cv" target="_blank">📄 View CV</a>
+            <a href="https://wa.me/6285795134357" class="btn wa" target="_blank">💬 WhatsApp</a>
+            <a href="mailto:inalierosemalina@gmail.com" class="btn email">✉️ Email</a>
+        </div>
+    </div>
+
+</body>
+</html>
